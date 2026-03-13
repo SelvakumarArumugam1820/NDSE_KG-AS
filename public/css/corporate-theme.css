@@ -1,0 +1,415 @@
+/* 
+   NDSE Corporate Theme
+   Inspiration: Professionalism, Precision, Structured Integrity
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --corp-blue: #1e3a8a;
+    --corp-blue-dark: #1e1b4b;
+    --corp-accent: #f59e0b;
+    /* Professional Gold/Orange */
+    --corp-slate: #f1f5f9;
+    --corp-gray: #64748b;
+    --corp-text: #1e293b;
+    --corp-white: #ffffff;
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-corp: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --transition-corp: all 0.3s ease-in-out;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--corp-text);
+    background-color: var(--corp-white);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Offset for Sticky Header */
+section, 
+.site-section, 
+.block-2,
+div[id$="-section"] {
+    scroll-margin-top: 100px;
+}
+
+h1,
+h2,
+h3,
+h4,
+.h1,
+.h2,
+.h3,
+.h4 {
+    font-family: var(--font-heading) !important;
+    font-weight: 700;
+    color: var(--corp-blue-dark);
+}
+
+/* Header & Navbar */
+.site-navbar {
+    background: var(--corp-white) !important;
+    box-shadow: var(--shadow-sm);
+    padding: 15px 0 !important;
+}
+
+.site-navbar .nav-link {
+    color: var(--corp-blue-dark) !important;
+    font-weight: 600;
+    font-size: 0.9rem;
+    /* Slightly smaller for more items */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.site-navbar .nav-link:hover,
+.site-navbar .active > .nav-link {
+    color: var(--corp-accent) !important;
+    position: relative;
+}
+
+/* Active Indicator Line */
+.site-navbar .active > .nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--corp-accent);
+    transition: var(--transition-corp);
+}
+
+.site-logo {
+    position: relative;
+    z-index: 2;
+}
+
+.site-logo img {
+    max-height: 50px;
+    width: auto;
+    transition: var(--transition-corp);
+}
+
+.sticky-wrapper.is-sticky .site-logo img {
+    max-height: 40px;
+}
+
+/* Sticky Navbar Active State - Bright White */
+.sticky-wrapper.is-sticky .site-navbar .active > .nav-link {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.sticky-wrapper.is-sticky .site-navbar .active > .nav-link:after {
+    background: #ffffff;
+}
+
+.site-navbar .main-menu>li {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.border-right {
+    border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 991px) {
+    .border-right {
+        border-right: none;
+    }
+}
+
+/* Hero Section */
+.hero-slide {
+    border-bottom: 5px solid var(--corp-accent);
+}
+
+.intro-section {
+    background-position: center !important;
+}
+
+.intro-section:before {
+    background: rgba(30, 58, 138, 0.7) !important;
+    /* Blue overlay */
+}
+
+.intro-section h1 {
+    font-size: 4rem !important;
+    font-weight: 800 !important;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    color: #ffffff;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+}
+
+.intro-section .btn {
+    padding: 18px 40px;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+/* Corporate Cards */
+.service-1 {
+    background: var(--corp-white);
+    border-radius: 8px;
+    padding: 40px;
+    border: none !important;
+    box-shadow: var(--shadow-sm);
+    border-top: 4px solid transparent !important;
+    transition: var(--transition-corp);
+}
+
+.service-1:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-corp);
+    border-top: 4px solid var(--corp-accent) !important;
+}
+
+.service-1-img-wrap {
+    margin: -40px -40px 30px -40px;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+    height: 200px;
+}
+
+.service-1-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.service-1:hover .service-1-img {
+    transform: scale(1.1);
+}
+
+.service-1-icon {
+    position: relative;
+    z-index: 2;
+    background: var(--corp-blue) !important;
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    margin-top: -60px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+    border: 3px solid #fff;
+}
+
+.service-1-icon span {
+    color: #fff !important;
+    font-size: 24px;
+}
+
+.service-heading {
+    font-size: 1.2rem !important;
+    margin-bottom: 15px;
+}
+
+.services-1-wrap .border-box {
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+/* Improved Section Spacing */
+.site-section {
+    padding: 100px 0 !important;
+}
+
+/* Section Styling */
+.section-subtitle {
+    color: var(--corp-accent) !important;
+    letter-spacing: 4px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.8rem !important;
+}
+
+.section-title {
+    font-weight: 700 !important;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--corp-accent);
+}
+
+/* Footer Corporate */
+.footer {
+    background: var(--corp-blue-dark);
+    color: #cbd5e1;
+    border-top: 10px solid var(--corp-blue);
+}
+
+.footer-heading {
+    color: var(--corp-accent) !important;
+    font-size: 1rem !important;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Buttons */
+.btn-corp {
+    background: var(--corp-accent);
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    transition: var(--transition-corp);
+}
+
+.btn-corp:hover {
+    background: var(--corp-blue);
+    color: #fff;
+    box-shadow: var(--shadow-corp);
+}
+
+/* Domain/Expertise Icons */
+.expertise-icon {
+    font-size: 40px;
+    color: var(--corp-blue);
+    margin-bottom: 15px;
+}
+
+/* Gallery Styles */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-corp);
+    background: #000;
+}
+
+.gallery-img {
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    width: 100%;
+    transition: transform 0.6s ease;
+}
+
+.gallery-item:hover {
+    box-shadow: var(--shadow-corp);
+    transform: translateY(-5px);
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Modern Card Enhancement */
+.modern-card {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: var(--transition-corp);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.modern-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+}
+
+.modern-card img {
+    transition: transform 0.5s ease;
+}
+
+.modern-card:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.grayscale {
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.grayscale:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.shadow-corp {
+    box-shadow: var(--shadow-corp);
+}
+
+.rounded-lg {
+    border-radius: 20px !important;
+}
+
+/* Loader Styles */
+#loader {
+    background: #fff;
+}
+
+.path {
+    stroke: var(--corp-blue);
+}
+
+/* Floating Action Button Group */
+.floating-btn-group .btn {
+    transition: var(--transition-corp);
+    border: none !important;
+}
+
+.floating-btn-group .btn:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3) !important;
+}
+
+.btn-success {
+    background-color: #25d366 !important;
+}
+
+.btn-info {
+    background-color: #17a2b8 !important;
+}
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.bg-light-soft {
+    background-color: #f8f9fa !important;
+}
+
+.rounded-xl {
+    border-radius: 30px !important;
+}

@@ -1,0 +1,167 @@
+/* 
+   NDSE EcoDream Theme
+   Inspiration: Innovation, Sustainability, Organic Motion
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --eco-teal: #0a2a2a;
+    --eco-green: #2ecc71;
+    --eco-sage: #e8f5e9;
+    --eco-mint: #00ff88;
+    --eco-dark: #051a1a;
+    --eco-white: #ffffff;
+    --eco-accent: #ff5e15;
+    --font-heading: 'Syne', sans-serif;
+    --font-body: 'Public Sans', sans-serif;
+    --radius-organic: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    --shadow-deep: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    --transition-liquid: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--eco-teal);
+    background-color: var(--eco-sage);
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5 {
+    font-family: var(--font-heading) !important;
+    font-weight: 800;
+}
+
+/* Organic Sections */
+.organic-section {
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.organic-blob {
+    position: absolute;
+    background: var(--eco-mint);
+    opacity: 0.1;
+    filter: blur(80px);
+    z-index: -1;
+    border-radius: var(--radius-organic);
+}
+
+/* Hero Modernization */
+.intro-section {
+    background-color: var(--eco-dark) !important;
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 80px;
+}
+
+.intro-section h1 {
+    font-size: 5rem !important;
+    line-height: 1;
+    background: linear-gradient(to right, #fff, var(--eco-mint));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Eco Cards */
+.service-1 {
+    background: var(--eco-white);
+    border-radius: 40px;
+    padding: 50px 40px;
+    border: 1px solid rgba(10, 42, 42, 0.05) !important;
+    box-shadow: var(--shadow-deep);
+    transition: var(--transition-liquid);
+}
+
+.service-1:hover {
+    transform: translateY(-15px) rotate(1deg);
+    border-color: var(--eco-mint) !important;
+}
+
+.service-1-icon {
+    background: var(--eco-mint) !important;
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-organic);
+    margin-bottom: 30px;
+}
+
+.service-1-icon span {
+    color: var(--eco-teal) !important;
+}
+
+/* Floating Elements */
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Navbar Eco Style */
+.site-navbar {
+    background: rgba(5, 26, 26, 0.8) !important;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0 0 30px 30px;
+}
+
+.site-navbar .nav-link {
+    color: #fff !important;
+    font-family: var(--font-heading);
+    text-transform: lowercase;
+    font-size: 1.1rem;
+    letter-spacing: -0.5px;
+}
+
+.site-navbar .nav-link:hover {
+    color: var(--eco-mint) !important;
+}
+
+/* Smooth Scroll Utilities */
+.reveal-text {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Custom Buttons */
+.btn-eco {
+    background: var(--eco-mint);
+    color: var(--eco-teal);
+    padding: 20px 40px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+    transition: var(--transition-liquid);
+}
+
+.btn-eco:hover {
+    background: var(--eco-teal);
+    color: var(--eco-mint);
+    transform: scale(1.05);
+}
