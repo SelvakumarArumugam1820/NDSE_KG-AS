@@ -46,10 +46,21 @@
     </a>
     <ul class="nav-menu" id="navMenu">
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li class="has-dropdown">
+        <a href="services.html" class="active">Services <span class="icon-keyboard_arrow_down"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="digital-survey.html" class="active">Digital Survey</a></li>
+          <li><a href="services.html">Land Survey</a></li>
+          <li><a href="building-plan.html">Building Plan Approval</a></li>
+          <li><a href="services.html">Layout Approval</a></li>
+          <li><a href="services.html">Subdivision Services</a></li>
+          <li><a href="services.html">Patta &amp; Chitta Services</a></li>
+          <li><a href="services.html">Registration Support</a></li>
+          <li><a href="services.html">Liaison Services</a></li>
+        </ul>
+      </li>
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="digital-survey.html" class="active">Digital Survey</a></li>
       <li><a href="teams.html">Teams</a></li>
       <li><a href="contact.html" class="nav-cta-btn">Contact Us</a></li>
     </ul>
@@ -57,13 +68,27 @@
       <span></span><span></span><span></span>
     </button>
   </div>
+  <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li>
+        <button class="mobile-services-toggle" id="mobileServicesToggle" aria-expanded="false">
+          Services <span class="toggle-arrow icon-keyboard_arrow_down"></span>
+        </button>
+        <ul class="mobile-services-submenu" id="mobileServicesSubmenu">
+          <li><a href="digital-survey.html" class="active">Digital Survey</a></li>
+          <li><a href="services.html">Land Survey</a></li>
+          <li><a href="building-plan.html">Building Plan Approval</a></li>
+          <li><a href="services.html">Layout Approval</a></li>
+          <li><a href="services.html">Subdivision Services</a></li>
+          <li><a href="services.html">Patta &amp; Chitta Services</a></li>
+          <li><a href="services.html">Registration Support</a></li>
+          <li><a href="services.html">Liaison Services</a></li>
+        </ul>
+      </li>
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="digital-survey.html" class="active">Digital Survey</a></li>
       <li><a href="teams.html">Teams</a></li>
       <li><a href="contact.html" class="mobile-cta">Contact Us</a></li>
     </ul>
@@ -71,13 +96,15 @@
 </nav>
 
 <!-- Page Hero -->
-<div class="page-hero" style="background-image: url('images/digital_land_mapping.png');">
+<div class="page-hero" style="background-image: url('images/drone_survey_aerial.png');">
   <div class="container">
     <div class="page-hero-content" data-aos="fade-up">
-      <h1>Digital Survey Technology</h1>
-      <p class="subtitle">Harnessing the power of GIS, LiDAR, and Drone mapping for next-gen spatial data.</p>
+      <h1>Digital Survey</h1>
+      <p class="subtitle">High-resolution drone mapping, topographic analysis, and LiDAR solutions.</p>
       <div class="breadcrumb-pill">
         <a href="index.html">Home</a>
+        <span>&rsaquo;</span>
+        <a href="services.html">Services</a>
         <span>&rsaquo;</span>
         <span>Digital Survey</span>
       </div>
@@ -85,99 +112,158 @@
   </div>
 </div>
 
-<!-- Intro Section -->
+<!-- Service Overview Section -->
+<section class="py-section bg-white">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6" data-aos="fade-right">
+        <img src="images/digital_mapping.png" alt="Digital Survey Overview" class="img-fluid" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <span class="section-tag">Overview</span>
+        <h2 class="section-title">Premium <span>Digital Survey</span> Solutions</h2>
+        <p style="color: var(--text-muted); margin-bottom: 18px; font-size: 0.97rem; line-height: 1.75;">
+          Our Digital Survey services combine cutting-edge technology with precision engineering. We utilize commercial-grade drones, LiDAR technology, and advanced GIS systems to provide millimeter-accurate data for infrastructure, mining, and architectural projects.
+        </p>
+        <p style="color: var(--text-muted); margin-bottom: 28px; font-size: 0.97rem; line-height: 1.75;">
+          Whether it is a 500-acre solar plant layout or an intricate urban topographical map, our solutions ensure rapid data acquisition and unmatched reliability.
+        </p>
+        <div class="d-flex gap-3">
+          <a href="#contact" class="btn-blue-ndse">Get a Free Quote &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features & Benefits -->
+<section class="py-section bg-off-white">
+  <div class="container">
+    <div class="section-header text-center" data-aos="fade-up">
+      <span class="section-tag">Key Features</span>
+      <h2 class="section-title">Advanced <span>Capabilities</span></h2>
+    </div>
+    <div class="row g-4 mt-2">
+      <!-- Feature 1 -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up">
+        <div class="service-card" style="height:100%; padding:30px;">
+          <div class="service-card-icon mb-3"><span class="icon-camera" style="font-size:2.5rem; color:var(--primary);"></span></div>
+          <h3 class="mb-3">Drone Mapping</h3>
+          <p class="text-muted">High-speed aerial surveying for massive land areas with ultra-high resolution orthomosaic outputs.</p>
+        </div>
+      </div>
+      <!-- Feature 2 -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-card" style="height:100%; padding:30px;">
+          <div class="service-card-icon mb-3"><span class="flaticon-compass" style="font-size:2.5rem; color:var(--primary);"></span></div>
+          <h3 class="mb-3">LiDAR Scanning</h3>
+          <p class="text-muted">Precision laser scanning to penetrate vegetation and capture exact bare-earth terrain models.</p>
+        </div>
+      </div>
+      <!-- Feature 3 -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-card" style="height:100%; padding:30px;">
+          <div class="service-card-icon mb-3"><span class="flaticon-blueprint" style="font-size:2.5rem; color:var(--primary);"></span></div>
+          <h3 class="mb-3">3D Topography</h3>
+          <p class="text-muted">Comprehensive 3D mesh and point-cloud generation for accurate cut-and-fill volume analysis.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="py-section" style="background-color: var(--primary-dark); color: #fff;">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+        <h2 class="text-white mb-4">Why Choose NDSE for Digital Surveys?</h2>
+        <ul class="list-unstyled" style="font-size: 1.1rem; line-height: 2;">
+          <li class="mb-2"><span class="icon-check-circle text-primary me-2"></span> State-of-the-art DGPS &amp; RTK/PPK technology</li>
+          <li class="mb-2"><span class="icon-check-circle text-primary me-2"></span> Licensed and highly certified engineers</li>
+          <li class="mb-2"><span class="icon-check-circle text-primary me-2"></span> Rapid turnaround times for critical projects</li>
+          <li class="mb-2"><span class="icon-check-circle text-primary me-2"></span> Custom GIS data delivery formats (DWG, KML, SHP)</li>
+        </ul>
+      </div>
+      <div class="col-lg-6" data-aos="fade-left">
+        <div class="row g-3 text-center">
+          <div class="col-6">
+            <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 12px;">
+              <h3 class="text-white mb-0" style="font-size: 2.5rem; font-weight: 700;">12+</h3>
+              <p class="mb-0" style="color: rgba(255,255,255,0.7);">Years Experience</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 12px;">
+              <h3 class="text-white mb-0" style="font-size: 2.5rem; font-weight: 700;">5000+</h3>
+              <p class="mb-0" style="color: rgba(255,255,255,0.7);">Projects Delivered</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Project Gallery -->
 <section class="py-section bg-white">
   <div class="container">
     <div class="section-header text-center" data-aos="fade-up">
-      <span class="section-tag">Advanced Technology</span>
-      <h2 class="section-title">The Future of <span>Digital Surveying</span></h2>
-      <p class="section-desc">At NDSE, we integrate modern digital tools with traditional surveying expertise to provide comprehensive, high-resolution spatial insights for every project.</p>
+      <span class="section-tag">Gallery</span>
+      <h2 class="section-title">Recent <span>Projects</span></h2>
     </div>
-  </div>
-</section>
-
-<!-- Tech Block 1: Digital Land Survey & GIS Mapping -->
-<section class="py-section-sm bg-off-white">
-  <div class="container">
-    <div class="row align-items-center g-5 tech-block">
-      <!-- Right image -->
-      <div class="col-lg-6 order-lg-2" data-aos="fade-left">
-        <img src="images/digital_mapping.png" alt="Digital Land Survey" class="tech-block-img">
+    <div class="row g-4 mt-3">
+      <div class="col-lg-4 col-md-6" data-aos="fade-up">
+        <a href="images/hd_total_station.png" data-fancybox="gallery" class="gallery-item d-block" style="border-radius:12px; overflow:hidden;">
+          <img src="images/hd_total_station.png" alt="Project 1" class="img-fluid" style="transition: transform 0.3s ease;">
+        </a>
       </div>
-      <!-- Left text -->
-      <div class="col-lg-6 order-lg-1 tech-block-text" data-aos="fade-right">
-        <span class="section-tag">GIS Technology</span>
-        <h2>Digital Land Survey &amp; GIS Mapping</h2>
-        <p>Our GIS mapping services provide multi-layered spatial analysis for urban planning and environmental monitoring. We convert raw land data into intelligent digital maps that support informed decision-making.</p>
-        <ul class="tech-checklist">
-          <li>High-Resolution Orthomosaics</li>
-          <li>Multi-layered Spatial Databases</li>
-          <li>Asset Tracking &amp; Infrastructure Mapping</li>
-          <li>Environmental &amp; Land Use Analysis</li>
-        </ul>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <a href="images/digital_land_mapping.png" data-fancybox="gallery" class="gallery-item d-block" style="border-radius:12px; overflow:hidden;">
+          <img src="images/digital_land_mapping.png" alt="Project 2" class="img-fluid" style="transition: transform 0.3s ease;">
+        </a>
+      </div>
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <a href="images/tps-1.jpg" data-fancybox="gallery" class="gallery-item d-block" style="border-radius:12px; overflow:hidden;">
+          <img src="images/tps-1.jpg" alt="Project 3" class="img-fluid" style="transition: transform 0.3s ease;">
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Tech Block 2: Drone Mapping & 3D Terrain Modeling -->
-<section class="py-section-sm bg-white">
+<!-- Enquiry Form Section -->
+<section id="contact" class="py-section bg-off-white">
   <div class="container">
-    <div class="row align-items-center g-5 tech-block">
-      <!-- Left image -->
-      <div class="col-lg-6" data-aos="fade-right">
-        <img src="images/drone_survey.png" alt="Drone Mapping" class="tech-block-img">
-      </div>
-      <!-- Right text -->
-      <div class="col-lg-6 tech-block-text" data-aos="fade-left">
-        <span class="section-tag">Aerial Technology</span>
-        <h2>Drone Mapping &amp; 3D Terrain Modeling</h2>
-        <p>Utilizing high-end enterprise drones, we capture high-density point clouds to create realistic 3D models of any terrain or industrial site for accurate volumetric and spatial analysis.</p>
-        <ul class="tech-checklist">
-          <li>Volumetric Analysis for Construction</li>
-          <li>Contour Generation &amp; Topographic Charts</li>
-          <li>Realistic 3D Flythroughs</li>
-          <li>Large-Scale Site Monitoring</li>
-        </ul>
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center mb-5" data-aos="fade-up">
+        <h2 class="section-title">Request a <span>Survey</span></h2>
+        <p class="text-muted">Fill out the form below and our engineering team will get back to you with a detailed quote.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Tech Block 3: GPS Based Surveying & Topographic Mapping -->
-<section class="py-section-sm bg-off-white">
-  <div class="container">
-    <div class="row align-items-center g-5 tech-block">
-      <!-- Right image -->
-      <div class="col-lg-6 order-lg-2" data-aos="fade-left">
-        <img src="images/topographic-survey.png" alt="GPS Surveying" class="tech-block-img">
-      </div>
-      <!-- Left text -->
-      <div class="col-lg-6 order-lg-1 tech-block-text" data-aos="fade-right">
-        <span class="section-tag">GNSS Technology</span>
-        <h2>GPS Based Surveying &amp; Topographic Mapping</h2>
-        <p>Our GNSS/GPS technology ensures centimeter-level accuracy for large-scale topographic mapping projects, essential for feasibility studies and engineering designs.</p>
-        <ul class="tech-checklist">
-          <li>Real-Time Kinematic (RTK) Precision</li>
-          <li>Static GPS Observations</li>
-          <li>Digital Elevation Models (DEM)</li>
-          <li>Control Network Establishment</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA Banner -->
-<section class="cta-banner">
-  <div class="container">
-    <div class="row align-items-center g-4 cta-banner-content">
-      <div class="col-lg-8" data-aos="fade-right">
-        <h2>Ready for <span>Next-Gen Survey Technology?</span></h2>
-        <p>Contact NDSE today to harness the power of digital surveying for your project.</p>
-      </div>
-      <div class="col-lg-4 text-lg-end" data-aos="fade-left">
-        <a href="contact.html" class="btn-primary-ndse">Contact Us &rarr;</a>
+    <div class="row justify-content-center">
+      <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+        <form action="#" class="bg-white p-5" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+          <div class="row mb-4">
+            <div class="col-md-6 mb-4 mb-md-0">
+              <label class="form-label" style="font-weight: 500; font-size: 0.9rem;">Full Name</label>
+              <input type="text" class="form-control" style="border-radius: 8px; padding: 12px 15px; border: 1px solid #ddd;" placeholder="Enter your name">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label" style="font-weight: 500; font-size: 0.9rem;">Email Address</label>
+              <input type="email" class="form-control" style="border-radius: 8px; padding: 12px 15px; border: 1px solid #ddd;" placeholder="Enter your email">
+            </div>
+          </div>
+          <div class="mb-4">
+            <label class="form-label" style="font-weight: 500; font-size: 0.9rem;">Phone Number</label>
+            <input type="tel" class="form-control" style="border-radius: 8px; padding: 12px 15px; border: 1px solid #ddd;" placeholder="Enter your phone number">
+          </div>
+          <div class="mb-4">
+            <label class="form-label" style="font-weight: 500; font-size: 0.9rem;">Project Details</label>
+            <textarea class="form-control" style="border-radius: 8px; padding: 15px; border: 1px solid #ddd;" rows="4" placeholder="Tell us about your survey requirements (Acreage, Location, Type)"></textarea>
+          </div>
+          <button type="submit" class="btn-blue-ndse w-100" style="padding: 14px; font-size: 1rem;">Submit Enquiry</button>
+        </form>
       </div>
     </div>
   </div>
@@ -191,7 +277,7 @@
         <div class="footer-logo">
           <img src="images/NDSELOGO.png" alt="NDSE Logo">
         </div>
-        <p class="footer-desc">Precision in Every Point. Leading industry experts in digital survey engineering since 2018.</p>
+        <p class="footer-desc">Precision in Every Point. Leading industry experts in digital survey engineering since 2013.</p>
         <div class="footer-social">
           <a href="https://wa.me/917397733223" class="footer-social-btn" target="_blank"><span class="icon-whatsapp"></span></a>
           <a href="mailto:info@ndse.in" class="footer-social-btn"><span class="icon-envelope"></span></a>
@@ -210,10 +296,9 @@
       <div class="col-lg-2 col-md-6 mb-5">
         <h4 class="footer-heading">Services</h4>
         <ul class="footer-links">
-          <li><a href="services.html">Land Survey</a></li>
-          <li><a href="services.html">Drone Survey</a></li>
-          <li><a href="services.html">Topographic Survey</a></li>
           <li><a href="digital-survey.html">Digital Survey</a></li>
+          <li><a href="services.html">Land Survey</a></li>
+          <li><a href="building-plan.html">Building Plan</a></li>
           <li><a href="services.html">GPS Survey</a></li>
         </ul>
       </div>
@@ -231,7 +316,7 @@
   </div>
   <hr class="footer-divider">
   <div class="footer-bottom">
-    <p>&copy; 2025 NDSE Digital Survey &amp; Engineering. All Rights Reserved.</p>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Nathan Associates. All Rights Reserved.</p>
   </div>
 </footer>
 
@@ -250,12 +335,23 @@
 <script src="js/jquery.fancybox.min.js"></script>
 
 <script>
+// Navbar mobile toggle
 const hamburger = document.getElementById('navHamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 if (hamburger && mobileMenu) {
   hamburger.addEventListener('click', function() {
     this.classList.toggle('active');
     mobileMenu.classList.toggle('open');
+  });
+}
+// Mobile Services Accordion
+const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+const mobileServicesSubmenu = document.getElementById('mobileServicesSubmenu');
+if (mobileServicesToggle && mobileServicesSubmenu) {
+  mobileServicesToggle.addEventListener('click', function() {
+    const isOpen = mobileServicesSubmenu.classList.toggle('open');
+    this.classList.toggle('open', isOpen);
+    this.setAttribute('aria-expanded', isOpen);
   });
 }
 window.addEventListener('scroll', function() {

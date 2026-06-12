@@ -1,9 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Home | Nathan Digital Survey Engineers</title>
+<title>Home | NDSE Digital Survey & Engineering</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Nathan Digital Survey Engineers (NDSE) provides expert land surveying, precision engineering, building plan approvals, site marketing, and construction services across Tamil Nadu and Pan-India.">
+<meta name="keywords" content="Land Survey in Coimbatore, Building Plan Approval, Digital Survey Tamil Nadu, Construction Company, Approval PMC, Site Marketing, Labour Contract, Validation Engineering">
+<meta property="og:title" content="Home | NDSE Digital Survey & Engineering">
+<meta property="og:description" content="Expert land surveying, precision engineering, building plan approvals, site marketing, and construction services across Tamil Nadu and Pan-India.">
+<meta property="og:image" content="images/LG1.jpg">
+<meta property="og:url" content="https://www.ndse.in/">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- LocalBusiness Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Nathan Digital Survey Engineers",
+  "image": "https://www.ndse.in/images/LG1.jpg",
+  "@id": "https://www.ndse.in/",
+  "url": "https://www.ndse.in/",
+  "telephone": "+917397733223",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1 Cross extn, 100 ft road, Ghandipuram",
+    "addressLocality": "Coimbatore",
+    "postalCode": "641012",
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 11.0168,
+    "longitude": 76.9558
+  },
+  "sameAs": [
+    "https://www.facebook.com/ndse",
+    "https://www.linkedin.com/company/ndse"
+  ]
+}
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="fonts/icomoon/style.css">
 <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
@@ -46,10 +83,21 @@
     </a>
     <ul class="nav-menu" id="navMenu">
       <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li class="has-dropdown">
+        <a href="services.html">Services <span class="icon-keyboard_arrow_down"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="digital-survey.html">Digital Survey</a></li>
+          <li><a href="services.html">Land Survey</a></li>
+          <li><a href="building-plan.html">Building Plan Approval</a></li>
+          <li><a href="services.html">Layout Approval</a></li>
+          <li><a href="services.html">Subdivision Services</a></li>
+          <li><a href="services.html">Patta &amp; Chitta Services</a></li>
+          <li><a href="services.html">Registration Support</a></li>
+          <li><a href="services.html">Liaison Services</a></li>
+        </ul>
+      </li>
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="digital-survey.html">Digital Survey</a></li>
       <li><a href="teams.html">Teams</a></li>
       <li><a href="contact.html" class="nav-cta-btn">Contact Us</a></li>
     </ul>
@@ -61,10 +109,23 @@
   <div class="mobile-menu" id="mobileMenu">
     <ul>
       <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li>
+        <button class="mobile-services-toggle" id="mobileServicesToggle" aria-expanded="false">
+          Services <span class="toggle-arrow icon-keyboard_arrow_down"></span>
+        </button>
+        <ul class="mobile-services-submenu" id="mobileServicesSubmenu">
+          <li><a href="digital-survey.html">Digital Survey</a></li>
+          <li><a href="services.html">Land Survey</a></li>
+          <li><a href="building-plan.html">Building Plan Approval</a></li>
+          <li><a href="services.html">Layout Approval</a></li>
+          <li><a href="services.html">Subdivision Services</a></li>
+          <li><a href="services.html">Patta &amp; Chitta Services</a></li>
+          <li><a href="services.html">Registration Support</a></li>
+          <li><a href="services.html">Liaison Services</a></li>
+        </ul>
+      </li>
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="digital-survey.html">Digital Survey</a></li>
       <li><a href="teams.html">Teams</a></li>
       <li><a href="contact.html" class="mobile-cta">Contact Us</a></li>
     </ul>
@@ -73,7 +134,7 @@
 
 <!-- Hero Carousel -->
 <div class="hero-wrap">
-  <div class="hero-carousel owl-carousel">
+  <div class="hero-carousel hero-slide owl-carousel">
 
     <!-- Slide 1 -->
     <div class="hero-slide-item">
@@ -135,24 +196,24 @@
 </div>
 
 <!-- Stats Bar -->
-<section class="stats-bar">
+<section class="stats-bar" id="statsSection">
   <div class="container">
     <div class="stats-grid">
       <div class="stat-item" data-aos="fade-up">
-        <span class="stat-num">6+</span>
+        <span class="stat-num" id="expCounter">0</span><span class="stat-num" style="margin-left:2px;">+</span>
         <span class="stat-label">Years Experience</span>
       </div>
       <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-        <span class="stat-num">500+</span>
+        <span class="stat-num" id="projCounter">0</span><span class="stat-num" style="margin-left:2px;">+</span>
         <span class="stat-label">Projects Completed</span>
       </div>
       <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-        <span class="stat-num">20+</span>
-        <span class="stat-label">Expert Engineers</span>
+        <span class="stat-num" id="satCounter">0</span><span class="stat-num" style="margin-left:2px;">%</span>
+        <span class="stat-label">Client Satisfaction</span>
       </div>
       <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
-        <span class="stat-num">100%</span>
-        <span class="stat-label">Precision Delivery</span>
+        <span class="stat-num">24/7</span>
+        <span class="stat-label">Engineering Support</span>
       </div>
     </div>
   </div>
@@ -168,69 +229,91 @@
     </div>
     <div class="row g-4">
       <!-- Card 1 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up">
         <div class="service-card-icon-only">
           <div class="service-card-top">
-            <div class="service-icon-box"><span class="flaticon-engineer"></span></div>
-            <div class="service-card-thumb"><img src="images/land_survey.png" alt="Land Survey"></div>
+            <div class="service-icon-box"><span class="icon-file-text-o"></span></div>
+            <div class="service-card-thumb"><img src="images/document-verification-survey.png" alt="Approvals" loading="lazy"></div>
           </div>
-          <h3>Land Survey</h3>
-          <p>High-precision boundary mapping and legal land verification with official certification and extreme accuracy.</p>
+          <h3>Approvals</h3>
+          <p>Seamless execution of legal documentation, government clearances, and statutory property approvals with extreme precision.</p>
         </div>
       </div>
       <!-- Card 2 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="80">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="50">
         <div class="service-card-icon-only">
           <div class="service-card-top">
-            <div class="service-icon-box"><span class="icon-camera"></span></div>
-            <div class="service-card-thumb"><img src="images/drone_survey.png" alt="Drone Survey"></div>
+            <div class="service-icon-box"><span class="flaticon-blueprint"></span></div>
+            <div class="service-card-thumb"><img src="images/subdivision-and-layout-design-survey.png" alt="Building Plan" loading="lazy"></div>
           </div>
-          <h3>Drone Survey</h3>
-          <p>Fast aerial data collection and photogrammetry for large-scale monitoring and 3D reconstruction.</p>
+          <h3>Building Plan</h3>
+          <p>Expert architectural drafting and meticulous building plans tailored for immediate DTCP and statutory clearance.</p>
         </div>
       </div>
       <!-- Card 3 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="160">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
         <div class="service-card-icon-only">
           <div class="service-card-top">
-            <div class="service-icon-box"><span class="flaticon-crane"></span></div>
-            <div class="service-card-thumb"><img src="images/construction_survey.png" alt="Construction Layout"></div>
+            <div class="service-icon-box"><span class="icon-camera"></span></div>
+            <div class="service-card-thumb"><img src="images/digital_mapping.png" alt="Digital Survey" loading="lazy"></div>
           </div>
-          <h3>Construction Layout</h3>
-          <p>Precise setting out to ensure build alignment with blueprints and engineering specifications.</p>
+          <h3>Digital Survey</h3>
+          <p>High-resolution drone mapping, topographic analysis, and LiDAR solutions for modern land surveying requirements.</p>
         </div>
       </div>
       <!-- Card 4 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="240">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="150">
         <div class="service-card-icon-only">
           <div class="service-card-top">
-            <div class="service-icon-box"><span class="flaticon-compass"></span></div>
-            <div class="service-card-thumb"><img src="images/topographic-survey.png" alt="Topographic Survey"></div>
+            <div class="service-icon-box"><span class="icon-bar-chart"></span></div>
+            <div class="service-card-thumb"><img src="images/gis_mapping.png" alt="Site Marketing" loading="lazy"></div>
           </div>
-          <h3>Topographic Survey</h3>
-          <p>Detailed elevation and contour mapping for architectural and engineering site planning.</p>
+          <h3>Site Marketing</h3>
+          <p>Strategic property positioning, visual site representations, and comprehensive digital marketing for high-value lands.</p>
         </div>
       </div>
       <!-- Card 5 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="320">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
         <div class="service-card-icon-only">
           <div class="service-card-top">
-            <div class="service-icon-box"><span class="icon-location-arrow"></span></div>
-            <div class="service-card-thumb"><img src="images/gis_mapping.png" alt="GPS Survey"></div>
+            <div class="service-icon-box"><span class="flaticon-crane"></span></div>
+            <div class="service-card-thumb"><img src="images/construction_survey.png" alt="Construction" loading="lazy"></div>
           </div>
-          <h3>GPS Survey</h3>
-          <p>Centimeter-level satellite-based positioning for global coordinates and accurate control points.</p>
+          <h3>Construction</h3>
+          <p>End-to-end robust construction services, from foundational engineering to premium architectural finishing.</p>
         </div>
       </div>
       <!-- Card 6 -->
-      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="250">
         <div class="service-card-icon-only">
           <div class="service-card-top">
-            <div class="service-icon-box"><span class="flaticon-planning"></span></div>
-            <div class="service-card-thumb"><img src="images/construction_measurement.png" alt="Building Layout"></div>
+            <div class="service-icon-box"><span class="flaticon-manager"></span></div>
+            <div class="service-card-thumb"><img src="images/setting-out-survey.png" alt="Approval PMC" loading="lazy"></div>
           </div>
-          <h3>Building Layout</h3>
-          <p>Expert layout services for residential and commercial structures with precise floor-level accuracy.</p>
+          <h3>Approval PMC</h3>
+          <p>Project Management Consultancy for rapid tracking of bureaucratic processes and compliance validations.</p>
+        </div>
+      </div>
+      <!-- Card 7 -->
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-card-icon-only">
+          <div class="service-card-top">
+            <div class="service-icon-box"><span class="icon-users"></span></div>
+            <div class="service-card-thumb"><img src="images/survey_engineers_work.png" alt="Labour Contract"></div>
+          </div>
+          <h3>Labour Contract</h3>
+          <p>Supplying skilled technical manpower and reliable labour contracts for large-scale engineering projects.</p>
+        </div>
+      </div>
+      <!-- Card 8 -->
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="350">
+        <div class="service-card-icon-only">
+          <div class="service-card-top">
+            <div class="service-icon-box"><span class="icon-check-square-o"></span></div>
+            <div class="service-card-thumb"><img src="images/boundary-survey.png" alt="Validation" loading="lazy"></div>
+          </div>
+          <h3>Validation</h3>
+          <p>Thorough structural audits, legal document verification, and engineering assessments for complete site assurance.</p>
         </div>
       </div>
     </div>
@@ -348,6 +431,113 @@
   </div>
 </section>
 
+<!-- Trust / Testimonials Section -->
+<section class="py-section bg-white testimonials-section">
+  <div class="container">
+    <div class="section-header text-center" data-aos="fade-up">
+      <span class="section-tag">Client Trust</span>
+      <h2 class="section-title">What Our <span>Clients Say</span></h2>
+      <p class="section-desc">Over 500 successful projects delivered with precision, reliability, and excellence.</p>
+    </div>
+    <div class="row g-4">
+      <!-- Testimonial 1 -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up">
+        <div class="testimonial-card">
+          <div class="rating">
+            <span class="icon-star text-warning"></span><span class="icon-star text-warning"></span><span class="icon-star text-warning"></span><span class="icon-star text-warning"></span><span class="icon-star text-warning"></span>
+          </div>
+          <p class="testimonial-text">"NDSE's PMC and approval services saved us months of waiting. Their digital survey accuracy is unmatched in Coimbatore."</p>
+          <div class="client-info">
+            <div class="client-avatar"><span class="icon-user"></span></div>
+            <div>
+              <h4 class="client-name">Karthik R.</h4>
+              <span class="client-role">Property Developer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 2 -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-card">
+          <div class="rating">
+            <span class="icon-star text-warning"></span><span class="icon-star text-warning"></span><span class="icon-star text-warning"></span><span class="icon-star text-warning"></span><span class="icon-star text-warning"></span>
+          </div>
+          <p class="testimonial-text">"From building plans to construction layout, the team handled our industrial project seamlessly. Highly professional."</p>
+          <div class="client-info">
+            <div class="client-avatar"><span class="icon-user"></span></div>
+            <div>
+              <h4 class="client-name">Suresh Kumar</h4>
+              <span class="client-role">Industrial Contractor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Testimonial 3 -->
+      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-card">
+          <div class="rating">
+            <span class="icon-star text-warning"></span><span class="icon-star text-warning"></span><span class="icon-star text-warning"></span><span class="icon-star text-warning"></span><span class="icon-star text-warning"></span>
+          </div>
+          <p class="testimonial-text">"Their site marketing strategies and layout validation gave us complete confidence in our investment. Truly premium service."</p>
+          <div class="client-info">
+            <div class="client-avatar"><span class="icon-user"></span></div>
+            <div>
+              <h4 class="client-name">Priya S.</h4>
+              <span class="client-role">Real Estate Investor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEO Conversational Content Block (AEO / GEO) -->
+<section class="py-section bg-off-white seo-block">
+  <div class="container">
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+        <h3 class="mb-4">Why is Professional Land Surveying and PMC Important in Manapparai & Trichy?</h3>
+        <p class="text-muted text-start">In today's fast-paced real estate and construction environment in <strong>Tamil Nadu</strong>, securing timely <strong>Approvals</strong>, precise <strong>Building Plans</strong>, and accurate <strong>Digital Surveys</strong> is crucial. By partnering with a top-tier provider like Nathan Digital Survey Engineers, developers ensure that their <strong>Construction</strong> projects adhere to legal boundaries through stringent <strong>Validation</strong> protocols. Our robust <strong>Approval PMC</strong> and <strong>Labour Contract</strong> solutions mitigate risk, while strategic <strong>Site Marketing</strong> helps you reach the right buyers quickly in local markets like Manapparai, Trichy, and Coimbatore.</p>
+      </div>
+    </div>
+
+    <!-- FAQ Section for AEO -->
+    <div class="row justify-content-center">
+      <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="text-center mb-4">Frequently Asked Questions</h3>
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item" style="border:none; border-bottom:1px solid #ddd; border-radius:0;">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button collapsed bg-transparent font-weight-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="color:var(--primary-dark); box-shadow:none;">
+                What areas do you serve in Tamil Nadu?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                We provide our premium digital surveying, building plan approvals, and PMC services across India, with core offices in Manapparai, Trichy, and Coimbatore.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item" style="border:none; border-bottom:1px solid #ddd; border-radius:0;">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed bg-transparent font-weight-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color:var(--primary-dark); box-shadow:none;">
+                How long does a digital drone survey take?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+              <div class="accordion-body text-muted">
+                Digital drone surveys are highly efficient. The on-site data capture is usually completed in a single day, depending on the site size, with highly accurate GIS reporting provided shortly after.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- Footer -->
 <footer class="ndse-footer">
   <div class="container">
@@ -356,7 +546,7 @@
         <div class="footer-logo">
           <img src="images/NDSELOGO.png" alt="NDSE Logo">
         </div>
-        <p class="footer-desc">Precision in Every Point. Leading industry experts in digital survey engineering since 2018.</p>
+        <p class="footer-desc">Precision in Every Point. Leading industry experts in digital survey engineering since 2013.</p>
         <div class="footer-social">
           <a href="https://wa.me/917397733223" class="footer-social-btn" target="_blank"><span class="icon-whatsapp"></span></a>
           <a href="mailto:info@ndse.in" class="footer-social-btn"><span class="icon-envelope"></span></a>
@@ -396,7 +586,7 @@
   </div>
   <hr class="footer-divider">
   <div class="footer-bottom">
-    <p>&copy; 2025 NDSE Digital Survey &amp; Engineering. All Rights Reserved.</p>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Nathan Associates. All Rights Reserved.</p>
   </div>
 </footer>
 
@@ -423,10 +613,9 @@ $(document).ready(function() {
       autoplay: true,
       autoplayTimeout: 5500,
       autoplayHoverPause: true,
-      animateOut: 'fadeOut',
-      animateIn: 'fadeIn',
       dots: true,
-      nav: false,
+      nav: true,
+      navText: ['<span class="icon-keyboard_arrow_left" style="font-size:2rem;color:#fff;"></span>', '<span class="icon-keyboard_arrow_right" style="font-size:2rem;color:#fff;"></span>'],
       smartSpeed: 900
     });
   }
@@ -439,6 +628,16 @@ if (hamburger && mobileMenu) {
   hamburger.addEventListener('click', function() {
     this.classList.toggle('active');
     mobileMenu.classList.toggle('open');
+  });
+}
+// Mobile Services Accordion
+const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+const mobileServicesSubmenu = document.getElementById('mobileServicesSubmenu');
+if (mobileServicesToggle && mobileServicesSubmenu) {
+  mobileServicesToggle.addEventListener('click', function() {
+    const isOpen = mobileServicesSubmenu.classList.toggle('open');
+    this.classList.toggle('open', isOpen);
+    this.setAttribute('aria-expanded', isOpen);
   });
 }
 // Navbar scroll shadow
@@ -466,6 +665,53 @@ window.addEventListener('load', function() {
 });
 // AOS Init
 if (typeof AOS !== 'undefined') { AOS.init({ duration: 700, once: true, offset: 60 }); }
+
+// Dynamic Statistics Counter
+const startYear = 2013;
+const currentYear = new Date().getFullYear();
+const yearsExp = currentYear - startYear;
+
+// Set target values
+const targets = {
+  expCounter: yearsExp,
+  projCounter: 5000,
+  satCounter: 100
+};
+
+// Counter animation function
+function animateCounters() {
+  for (let id in targets) {
+    let el = document.getElementById(id);
+    if (!el) continue;
+    let target = targets[id];
+    let count = 0;
+    // Determine increment speed based on magnitude
+    let increment = target > 1000 ? Math.ceil(target / 100) : Math.ceil(target / 50);
+    if (target < 20) increment = 1;
+    let timer = setInterval(() => {
+      count += increment;
+      if (count >= target) {
+        count = target;
+        clearInterval(timer);
+      }
+      el.innerText = count;
+    }, 20);
+  }
+}
+
+// Trigger animation on scroll
+let statsAnimated = false;
+window.addEventListener('scroll', function() {
+  const statsSection = document.getElementById('statsSection');
+  if (statsSection && !statsAnimated) {
+    const rect = statsSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      animateCounters();
+      statsAnimated = true;
+    }
+  }
+});
+
 </script>
 
 </body>

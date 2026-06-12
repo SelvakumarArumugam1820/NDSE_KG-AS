@@ -46,10 +46,21 @@
     </a>
     <ul class="nav-menu" id="navMenu">
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li class="has-dropdown">
+        <a href="services.html">Services <span class="icon-keyboard_arrow_down"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="digital-survey.html">Digital Survey</a></li>
+          <li><a href="services.html">Land Survey</a></li>
+          <li><a href="building-plan.html">Building Plan Approval</a></li>
+          <li><a href="services.html">Layout Approval</a></li>
+          <li><a href="services.html">Subdivision Services</a></li>
+          <li><a href="services.html">Patta &amp; Chitta Services</a></li>
+          <li><a href="services.html">Registration Support</a></li>
+          <li><a href="services.html">Liaison Services</a></li>
+        </ul>
+      </li>
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html" class="active">Projects</a></li>
-      <li><a href="digital-survey.html">Digital Survey</a></li>
       <li><a href="teams.html">Teams</a></li>
       <li><a href="contact.html" class="nav-cta-btn">Contact Us</a></li>
     </ul>
@@ -60,10 +71,23 @@
   <div class="mobile-menu" id="mobileMenu">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li>
+        <button class="mobile-services-toggle" id="mobileServicesToggle" aria-expanded="false">
+          Services <span class="toggle-arrow icon-keyboard_arrow_down"></span>
+        </button>
+        <ul class="mobile-services-submenu" id="mobileServicesSubmenu">
+          <li><a href="digital-survey.html">Digital Survey</a></li>
+          <li><a href="services.html">Land Survey</a></li>
+          <li><a href="building-plan.html">Building Plan Approval</a></li>
+          <li><a href="services.html">Layout Approval</a></li>
+          <li><a href="services.html">Subdivision Services</a></li>
+          <li><a href="services.html">Patta &amp; Chitta Services</a></li>
+          <li><a href="services.html">Registration Support</a></li>
+          <li><a href="services.html">Liaison Services</a></li>
+        </ul>
+      </li>
       <li><a href="about.html">About</a></li>
       <li><a href="projects.html" class="active">Projects</a></li>
-      <li><a href="digital-survey.html">Digital Survey</a></li>
       <li><a href="teams.html">Teams</a></li>
       <li><a href="contact.html" class="mobile-cta">Contact Us</a></li>
     </ul>
@@ -218,7 +242,7 @@
         <div class="footer-logo">
           <img src="images/NDSELOGO.png" alt="NDSE Logo">
         </div>
-        <p class="footer-desc">Precision in Every Point. Leading industry experts in digital survey engineering since 2018.</p>
+        <p class="footer-desc">Precision in Every Point. Leading industry experts in digital survey engineering since 2013.</p>
         <div class="footer-social">
           <a href="https://wa.me/917397733223" class="footer-social-btn" target="_blank"><span class="icon-whatsapp"></span></a>
           <a href="mailto:info@ndse.in" class="footer-social-btn"><span class="icon-envelope"></span></a>
@@ -258,7 +282,7 @@
   </div>
   <hr class="footer-divider">
   <div class="footer-bottom">
-    <p>&copy; 2025 NDSE Digital Survey &amp; Engineering. All Rights Reserved.</p>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Nathan Associates. All Rights Reserved.</p>
   </div>
 </footer>
 
@@ -283,6 +307,16 @@ if (hamburger && mobileMenu) {
   hamburger.addEventListener('click', function() {
     this.classList.toggle('active');
     mobileMenu.classList.toggle('open');
+  });
+}
+// Mobile Services Accordion
+const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+const mobileServicesSubmenu = document.getElementById('mobileServicesSubmenu');
+if (mobileServicesToggle && mobileServicesSubmenu) {
+  mobileServicesToggle.addEventListener('click', function() {
+    const isOpen = mobileServicesSubmenu.classList.toggle('open');
+    this.classList.toggle('open', isOpen);
+    this.setAttribute('aria-expanded', isOpen);
   });
 }
 window.addEventListener('scroll', function() {

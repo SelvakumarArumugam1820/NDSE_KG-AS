@@ -46,10 +46,21 @@
     </a>
     <ul class="nav-menu" id="navMenu">
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li class="has-dropdown">
+        <a href="services.html">Services <span class="icon-keyboard_arrow_down"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="digital-survey.html">Digital Survey</a></li>
+          <li><a href="services.html">Land Survey</a></li>
+          <li><a href="building-plan.html">Building Plan Approval</a></li>
+          <li><a href="services.html">Layout Approval</a></li>
+          <li><a href="services.html">Subdivision Services</a></li>
+          <li><a href="services.html">Patta &amp; Chitta Services</a></li>
+          <li><a href="services.html">Registration Support</a></li>
+          <li><a href="services.html">Liaison Services</a></li>
+        </ul>
+      </li>
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="digital-survey.html">Digital Survey</a></li>
       <li><a href="teams.html">Teams</a></li>
       <li><a href="contact.html" class="nav-cta-btn">Contact Us</a></li>
     </ul>
@@ -60,10 +71,23 @@
   <div class="mobile-menu" id="mobileMenu">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li>
+        <button class="mobile-services-toggle" id="mobileServicesToggle" aria-expanded="false">
+          Services <span class="toggle-arrow icon-keyboard_arrow_down"></span>
+        </button>
+        <ul class="mobile-services-submenu" id="mobileServicesSubmenu">
+          <li><a href="digital-survey.html">Digital Survey</a></li>
+          <li><a href="services.html">Land Survey</a></li>
+          <li><a href="building-plan.html">Building Plan Approval</a></li>
+          <li><a href="services.html">Layout Approval</a></li>
+          <li><a href="services.html">Subdivision Services</a></li>
+          <li><a href="services.html">Patta &amp; Chitta Services</a></li>
+          <li><a href="services.html">Registration Support</a></li>
+          <li><a href="services.html">Liaison Services</a></li>
+        </ul>
+      </li>
       <li><a href="about.html" class="active">About</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="digital-survey.html">Digital Survey</a></li>
       <li><a href="teams.html">Teams</a></li>
       <li><a href="contact.html" class="mobile-cta">Contact Us</a></li>
     </ul>
@@ -75,7 +99,7 @@
   <div class="container">
     <div class="page-hero-content" data-aos="fade-up">
       <h1>Our Story</h1>
-      <p class="subtitle">Building trust through precision engineering and excellence since 2018.</p>
+      <p class="subtitle">Building trust through precision engineering and excellence since 2013.</p>
       <div class="breadcrumb-pill">
         <a href="index.html">Home</a>
         <span>&rsaquo;</span>
@@ -94,22 +118,23 @@
         <div class="about-img-wrap">
           <img src="images/about_1.jpg" alt="NDSE Team">
           <div class="about-exp-badge">
-            <span class="exp-num">6+</span>
-            <span class="exp-label">Years of Excellence</span>
+            <span class="exp-num" id="dynamicExpNum">12+</span>
+            <span class="exp-label">Years of Trusted Service</span>
           </div>
         </div>
       </div>
       <!-- Right: Content -->
       <div class="col-lg-6" data-aos="fade-left">
         <span class="section-tag">Our Story</span>
-        <h2 class="section-title">Precision <span>Redefined</span> Since 2018</h2>
-        <p style="color: var(--text-muted); margin-bottom: 18px; font-size: 0.97rem; line-height: 1.75;">Starting in Tamil Nadu, Nathan Digital Survey Engineers (NDSE) was established to bridge the gap in high-precision surveying services within the Indian construction industry. Over the past 6 years, we have grown into a leading firm with over 20+ specialized staff members.</p>
+        <h2 class="section-title">Precision <span>Redefined</span> Since 2013</h2>
+        <p style="color: var(--text-muted); margin-bottom: 18px; font-size: 0.97rem; line-height: 1.75;">Starting in Tamil Nadu, Nathan Digital Survey Engineers (NDSE) was established to bridge the gap in high-precision surveying services within the Indian construction industry. Over the past <span id="dynamicExpText">12</span> years, we have grown into a leading firm with over 20+ specialized staff members.</p>
         <p style="color: var(--text-muted); margin-bottom: 28px; font-size: 0.97rem; line-height: 1.75;">Our commitment to accuracy and efficiency has made us a preferred partner for infrastructure projects across the country. We believe in transparency, precision, and delivering results that stand the test of time.</p>
         <ul class="about-feature-list mb-4">
           <li>State-of-the-art Survey Equipment</li>
           <li>Certified &amp; Licensed Surveyors</li>
-          <li>6+ Years of Specialized Experience</li>
-          <li>500+ Successfully Delivered Projects</li>
+          <li><span id="dynamicExpList">12+</span> Years of Trusted Service</li>
+          <li><span id="dynamicProjText">5000+</span> Successful Projects Completed</li>
+          <li>Serving Clients Across Tamil Nadu</li>
         </ul>
         <a href="contact.html" class="btn-blue-ndse">Get In Touch &rarr;</a>
       </div>
@@ -155,7 +180,7 @@
             <div class="service-card-thumb"><img src="images/hd_total_station.png" alt="Our Experience"></div>
           </div>
           <h3>Our Experience</h3>
-          <p>With 6+ years of specialized experience and a portfolio of over 500+ successful projects, our expertise covers everything from simple land surveys to complex industrial alignment.</p>
+          <p>With <span id="dynamicExpVision">12+</span> years of trusted service and a portfolio of over 5000+ successful projects completed, our expertise covers everything from simple land surveys to complex industrial alignment.</p>
         </div>
       </div>
     </div>
@@ -163,16 +188,16 @@
 </section>
 
 <!-- Stats Bar -->
-<section class="stats-bar">
+<section class="stats-bar" id="statsSection">
   <div class="container">
     <div class="stats-grid">
       <div class="stat-item" data-aos="fade-up">
-        <span class="stat-num">6+</span>
-        <span class="stat-label">Years Experience</span>
+        <span class="stat-num" id="expCounter">0</span><span class="stat-num" style="margin-left:2px;">+</span>
+        <span class="stat-label">Years of Trusted Service</span>
       </div>
       <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-        <span class="stat-num">500+</span>
-        <span class="stat-label">Projects Completed</span>
+        <span class="stat-num" id="projCounter">0</span><span class="stat-num" style="margin-left:2px;">+</span>
+        <span class="stat-label">Successful Projects</span>
       </div>
       <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
         <span class="stat-num">20+</span>
@@ -180,7 +205,7 @@
       </div>
       <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
         <span class="stat-num">100%</span>
-        <span class="stat-label">Precision Delivery</span>
+        <span class="stat-label">Client Satisfaction</span>
       </div>
     </div>
   </div>
@@ -194,7 +219,7 @@
         <div class="footer-logo">
           <img src="images/NDSELOGO.png" alt="NDSE Logo">
         </div>
-        <p class="footer-desc">Precision in Every Point. Leading industry experts in digital survey engineering since 2018.</p>
+        <p class="footer-desc">Precision in Every Point. Leading industry experts in digital survey engineering since 2013.</p>
         <div class="footer-social">
           <a href="https://wa.me/917397733223" class="footer-social-btn" target="_blank"><span class="icon-whatsapp"></span></a>
           <a href="mailto:info@ndse.in" class="footer-social-btn"><span class="icon-envelope"></span></a>
@@ -234,7 +259,7 @@
   </div>
   <hr class="footer-divider">
   <div class="footer-bottom">
-    <p>&copy; 2025 NDSE Digital Survey &amp; Engineering. All Rights Reserved.</p>
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Nathan Associates. All Rights Reserved.</p>
   </div>
 </footer>
 
@@ -262,6 +287,16 @@ if (hamburger && mobileMenu) {
     mobileMenu.classList.toggle('open');
   });
 }
+// Mobile Services Accordion
+const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+const mobileServicesSubmenu = document.getElementById('mobileServicesSubmenu');
+if (mobileServicesToggle && mobileServicesSubmenu) {
+  mobileServicesToggle.addEventListener('click', function() {
+    const isOpen = mobileServicesSubmenu.classList.toggle('open');
+    this.classList.toggle('open', isOpen);
+    this.setAttribute('aria-expanded', isOpen);
+  });
+}
 window.addEventListener('scroll', function() {
   const navbar = document.getElementById('ndseNavbar');
   if (navbar) {
@@ -283,6 +318,55 @@ window.addEventListener('load', function() {
   }
 });
 if (typeof AOS !== 'undefined') { AOS.init({ duration: 700, once: true, offset: 60 }); }
+
+// Dynamic Statistics & Years Engine
+const startYear = 2013;
+const currentYear = new Date().getFullYear();
+const yearsExp = currentYear - startYear;
+
+// Update static text elements
+document.getElementById('dynamicExpNum').innerText = yearsExp + '+';
+document.getElementById('dynamicExpText').innerText = yearsExp;
+document.getElementById('dynamicExpList').innerText = yearsExp + '+';
+document.getElementById('dynamicExpVision').innerText = yearsExp + '+';
+
+// Animated Counters
+const targets = {
+  expCounter: yearsExp,
+  projCounter: 5000
+};
+
+function animateCounters() {
+  for (let id in targets) {
+    let el = document.getElementById(id);
+    if (!el) continue;
+    let target = targets[id];
+    let count = 0;
+    let increment = target > 1000 ? Math.ceil(target / 100) : Math.ceil(target / 50);
+    if (target < 20) increment = 1;
+    let timer = setInterval(() => {
+      count += increment;
+      if (count >= target) {
+        count = target;
+        clearInterval(timer);
+      }
+      el.innerText = count;
+    }, 20);
+  }
+}
+
+let statsAnimated = false;
+window.addEventListener('scroll', function() {
+  const statsSection = document.getElementById('statsSection');
+  if (statsSection && !statsAnimated) {
+    const rect = statsSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      animateCounters();
+      statsAnimated = true;
+    }
+  }
+});
+
 </script>
 
 </body>
