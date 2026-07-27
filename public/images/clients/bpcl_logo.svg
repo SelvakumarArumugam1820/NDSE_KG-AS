@@ -1,0 +1,15 @@
+idhua enga vachu correct irukumo adhu<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" width="300" height="120">
+  <rect width="300" height="120" rx="10" fill="#f5f7fa"/>
+  <!-- BPCL Flame Logo area -->
+  <g transform="translate(40,25)">
+    <!-- Flame shape -->
+    <path d="M50,70 C20,65 5,40 30,15 C40,5 50,2 50,2 C50,2 60,5 70,15 C95,40 80,65 50,70Z" fill="#e53935"/>
+    <path d="M50,60 C30,55 20,40 35,25 C40,20 45,18 50,18 C55,18 60,20 65,25 C80,40 70,55 50,60Z" fill="#ff8f00"/>
+    <!-- "O" ring -->
+    <ellipse cx="50" cy="38" rx="8" ry="6" fill="none" stroke="#1a237e" stroke-width="2"/>
+  </g>
+  <!-- Text -->
+  <text x="130" y="48" font-family="Arial, Helvetica, sans-serif" font-weight="bold" font-size="22" fill="#1a237e">BPCL</text>
+  <text x="130" y="70" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#555">Bharat Petroleum</text>
+  <text x="130" y="88" font-family="Arial, Helvetica, sans-serif" font-size="9" fill="#888">Energy to Progress</text>
+</svg>

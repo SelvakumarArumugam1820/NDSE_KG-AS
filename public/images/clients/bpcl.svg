@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" width="200" height="80">
+  <rect width="200" height="80" rx="8" fill="#f0f4f8"/>
+  <text x="100" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="14" fill="#003366">BPCL</text>
+  <text x="100" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">Bharat Petroleum</text>
+  <text x="100" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#999">Energy to Progress</text>
+</svg>

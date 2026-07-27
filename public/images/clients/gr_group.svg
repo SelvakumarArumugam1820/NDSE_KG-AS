@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 90" width="220" height="90">
+  <!-- Background -->
+  <rect width="220" height="90" rx="10" fill="#ffffff"/>
+  <!-- Diamond / road icon -->
+  <polygon points="30,15 55,45 30,75 5,45" fill="#cc0000"/>
+  <polygon points="30,25 47,45 30,65 13,45" fill="#ffffff"/>
+  <text x="23" y="51" font-family="Arial, sans-serif" font-weight="900" font-size="14" fill="#cc0000">GR</text>
+  <!-- Company name -->
+  <text x="70" y="36" font-family="Arial, sans-serif" font-weight="800" font-size="20" fill="#cc0000">GR</text>
+  <text x="70" y="56" font-family="Arial, sans-serif" font-weight="600" font-size="12" fill="#333333">Group India</text>
+  <text x="70" y="72" font-family="Arial, sans-serif" font-size="9" fill="#777777">Infrastructure &amp; Construction</text>
+</svg>
