@@ -1,55 +1,56 @@
-import os
-import shutil
+$ErrorActionPreference = "Stop"
 
-# Paths
-base_dir = r"c:\Users\VaanamEMP\selvakumar_learing\NDSE_KG-AS\public"
-images_dir = os.path.join(base_dir, "images", "illustrations")
+$baseDir = "c:\Users\VaanamEMP\selvakumar_learing\NDSE_KG-AS\public"
+$imagesDir = Join-Path $baseDir "images\illustrations"
 
-# Create illustrations dir
-os.makedirs(images_dir, exist_ok=True)
-
-# Copy generated images to public/images/illustrations/
-# Using hardcoded filenames from artifact generation
-artifact_dir = r"C:\Users\VaanamEMP\.gemini\antigravity-ide\brain\dc996e2a-c982-4b60-b157-1ba734284615"
-generated_images = {
-    "total_station": "surveyor_total_station_1781418901934.png",
-    "drone": "surveyor_drone_1781418991360.png",
-    "gps": "surveyor_gps_1781419037944.png"
+# Create directory
+if (-not (Test-Path $imagesDir)) {
+    New-Item -ItemType Directory -Path $imagesDir | Out-Null
 }
 
-for key, filename in generated_images.items():
-    src = os.path.join(artifact_dir, filename)
-    dst = os.path.join(images_dir, f"{key}.png")
-    if os.path.exists(src):
-        shutil.copy2(src, dst)
-        print(f"Copied {filename} to {dst}")
+$artifactDir = "C:\Users\VaanamEMP\.gemini\antigravity-ide\brain\dc996e2a-c982-4b60-b157-1ba734284615"
+$generatedImages = @{
+    "total_station" = "surveyor_total_station_1781418901934.png"
+    "drone" = "surveyor_drone_1781418991360.png"
+    "gps" = "surveyor_gps_1781419037944.png"
+}
 
-services = [
+foreach ($key in $generatedImages.Keys) {
+    $src = Join-Path $artifactDir $generatedImages[$key]
+    $dst = Join-Path $imagesDir "$key.png"
+    if (Test-Path $src) {
+        Copy-Item -Path $src -Destination $dst -Force
+        Write-Host "Copied $($generatedImages[$key]) to $dst"
+    }
+}
+
+$services = @(
     "Land Survey", "Boundary Survey", "Topographical Survey", "DGPS Survey", "GPS Survey",
     "Total Station Survey", "Layout Survey", "Building Setting Out Survey", "Construction Survey", "Route Survey",
     "Road Alignment Survey", "Highway Survey", "Railway Survey", "Canal Survey", "Pipeline Survey",
     "Contour Survey", "Elevation Survey", "Mining Survey", "Industrial Survey", "Engineering Survey",
     "Control Survey", "Hydrographic Survey", "GIS Mapping", "Drone Survey", "As-Built Survey",
     "Property Survey", "Farm Land Survey", "Subdivision Survey", "Site Measurement Survey", "Land Demarcation Survey"
-]
+)
 
-template = """<!DOCTYPE html>
+$template = @"
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>{service_name} Services in Tamil Nadu | NDSE</title>
+  <title>{0} Services in Tamil Nadu | NDSE</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Professional {service_name} services in Tamil Nadu. Accurate measurements, legal compliance, and fast project execution by NDSE.">
-  <meta name="keywords" content="{service_name}, Land Survey, DGPS Survey, Total Station Survey, Boundary Survey, Topographical Survey, Survey Company Tamil Nadu">
+  <meta name="description" content="Professional {0} services in Tamil Nadu. Accurate measurements, legal compliance, and fast project execution by NDSE.">
+  <meta name="keywords" content="{0}, Land Survey, DGPS Survey, Total Station Survey, Boundary Survey, Topographical Survey, Survey Company Tamil Nadu">
   
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "{service_name}",
+    "serviceType": "{0}",
     "provider": {{
       "@type": "LocalBusiness",
-      "name": "Nathan Digital Survey Engineers",
+      "name": "Nathan Digital Survey Engineers (NDSE)",
       "image": "https://www.ndse.in/images/LG1.jpg",
       "telephone": "+917397733223",
       "address": {{
@@ -71,15 +72,15 @@ template = """<!DOCTYPE html>
     "mainEntity": [
       {{
         "@type": "Question",
-        "name": "What is a {service_name}?",
+        "name": "What is a {0}?",
         "acceptedAnswer": {{
           "@type": "Answer",
-          "text": "A {service_name} is a specialized surveying service that provides accurate data and measurements crucial for planning, engineering, and legal purposes."
+          "text": "A {0} is a specialized surveying service that provides accurate data and measurements crucial for planning, engineering, and legal purposes."
         }}
       }},
       {{
         "@type": "Question",
-        "name": "Why is {service_name} important in Tamil Nadu?",
+        "name": "Why is {0} important in Tamil Nadu?",
         "acceptedAnswer": {{
           "@type": "Answer",
           "text": "It ensures legal compliance, avoids boundary disputes, and provides the exact measurements required for construction and government approvals in Tamil Nadu."
@@ -87,10 +88,10 @@ template = """<!DOCTYPE html>
       }},
       {{
         "@type": "Question",
-        "name": "How long does a {service_name} take?",
+        "name": "How long does a {0} take?",
         "acceptedAnswer": {{
           "@type": "Answer",
-          "text": "The timeline varies based on the site size and complexity, but our advanced technology allows us to complete most {service_name}s within 1 to 3 days."
+          "text": "The timeline varies based on the site size and complexity, but our advanced technology allows us to complete most {0}s within 1 to 3 days."
         }}
       }},
       {{
@@ -103,10 +104,10 @@ template = """<!DOCTYPE html>
       }},
       {{
         "@type": "Question",
-        "name": "Do you offer {service_name} pan-India?",
+        "name": "Do you offer {0} pan-India?",
         "acceptedAnswer": {{
           "@type": "Answer",
-          "text": "Yes, while we are based in Tamil Nadu, our expert surveyors travel pan-India to provide high-precision {service_name}s for large-scale projects."
+          "text": "Yes, while we are based in Tamil Nadu, our expert surveyors travel pan-India to provide high-precision {0}s for large-scale projects."
         }}
       }}
     ]
@@ -170,7 +171,7 @@ template = """<!DOCTYPE html>
       margin-bottom: 20px;
     }}
     .process-steps li::before {{
-      content: "\\e5ca"; /* icon-check from icomoon if available, using simple dot */
+      content: "\e5ca";
       font-family: 'icomoon';
       position: absolute;
       left: 0;
@@ -243,7 +244,7 @@ template = """<!DOCTYPE html>
   <div class="service-detail-hero">
     <div class="container">
       <div data-aos="fade-up">
-        <h1>{service_name}</h1>
+        <h1>{0}</h1>
         <p>Professional, accurate, and high-precision surveying solutions tailored for your project requirements.</p>
       </div>
     </div>
@@ -256,11 +257,11 @@ template = """<!DOCTYPE html>
         
         <!-- Left Col -->
         <div class="col-lg-8" data-aos="fade-up">
-          <img src="images/illustrations/{image_key}.png" alt="{service_name}" class="service-img mb-4" loading="lazy">
+          <img src="images/illustrations/{1}.png" alt="{0}" class="service-img mb-4" loading="lazy">
           
           <h2 class="mb-3">Overview</h2>
           <div class="service-overview-box">
-            <p><strong>What is this survey?</strong><br> {service_name} involves advanced techniques to measure, map, and gather precise data about land or structures, providing a fundamental basis for all subsequent engineering or architectural work.</p>
+            <p><strong>What is this survey?</strong><br> {0} involves advanced techniques to measure, map, and gather precise data about land or structures, providing a fundamental basis for all subsequent engineering or architectural work.</p>
             <p class="mt-3"><strong>Why is it required?</strong><br> To ensure that every project is built upon accurate dimensions, mitigating legal disputes and construction errors.</p>
             <p class="mt-3"><strong>Who needs it?</strong><br> Real estate developers, architects, government agencies, and construction firms across commercial and industrial sectors.</p>
           </div>
@@ -308,7 +309,7 @@ template = """<!DOCTYPE html>
         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <div class="bg-light p-4 rounded mb-4" style="border: 1px solid #e9ecef;">
             <h4 class="mb-4">Get a Quote</h4>
-            <p class="text-muted mb-4">Need reliable {service_name} services? Contact our engineering experts today for accurate estimations and quick deployments.</p>
+            <p class="text-muted mb-4">Need reliable {0} services? Contact our engineering experts today for accurate estimations and quick deployments.</p>
             <a href="contact.html" class="btn-primary-ndse d-block text-center w-100 mb-3">Get Survey Quote</a>
             <a href="tel:+917397733223" class="btn-secondary-ndse d-block text-center w-100">Contact Our Survey Experts</a>
           </div>
@@ -330,7 +331,7 @@ template = """<!DOCTYPE html>
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center mb-5" data-aos="fade-up">
           <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
-          <p class="section-desc">Common queries about our {service_name} services.</p>
+          <p class="section-desc">Common queries about our {0} services.</p>
         </div>
       </div>
       <div class="row justify-content-center">
@@ -339,19 +340,19 @@ template = """<!DOCTYPE html>
             <div class="accordion-item" style="border:none; border-bottom:1px solid #ddd; border-radius:0;">
               <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button collapsed bg-transparent font-weight-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" style="color:var(--primary-dark); box-shadow:none;">
-                  What is a {service_name}?
+                  What is a {0}?
                 </button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body text-muted">
-                  A {service_name} is a specialized surveying service that provides accurate data and measurements crucial for planning, engineering, and legal purposes.
+                  A {0} is a specialized surveying service that provides accurate data and measurements crucial for planning, engineering, and legal purposes.
                 </div>
               </div>
             </div>
             <div class="accordion-item" style="border:none; border-bottom:1px solid #ddd; border-radius:0;">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed bg-transparent font-weight-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" style="color:var(--primary-dark); box-shadow:none;">
-                  Why is {service_name} important in Tamil Nadu?
+                  Why is {0} important in Tamil Nadu?
                 </button>
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
@@ -363,12 +364,12 @@ template = """<!DOCTYPE html>
             <div class="accordion-item" style="border:none; border-bottom:1px solid #ddd; border-radius:0;">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed bg-transparent font-weight-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" style="color:var(--primary-dark); box-shadow:none;">
-                  How long does a {service_name} take?
+                  How long does a {0} take?
                 </button>
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body text-muted">
-                  The timeline varies based on the site size and complexity, but our advanced technology allows us to complete most {service_name}s within 1 to 3 days.
+                  The timeline varies based on the site size and complexity, but our advanced technology allows us to complete most {0}s within 1 to 3 days.
                 </div>
               </div>
             </div>
@@ -387,12 +388,12 @@ template = """<!DOCTYPE html>
             <div class="accordion-item" style="border:none; border-bottom:1px solid #ddd; border-radius:0;">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed bg-transparent font-weight-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" style="color:var(--primary-dark); box-shadow:none;">
-                  Do you offer {service_name} pan-India?
+                  Do you offer {0} pan-India?
                 </button>
               </h2>
               <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body text-muted">
-                  Yes, while we are based in Tamil Nadu, our expert surveyors travel pan-India to provide high-precision {service_name}s for large-scale projects.
+                  Yes, while we are based in Tamil Nadu, our expert surveyors travel pan-India to provide high-precision {0}s for large-scale projects.
                 </div>
               </div>
             </div>
@@ -408,7 +409,7 @@ template = """<!DOCTYPE html>
       <div class="row">
         <div class="col-lg-3 col-md-6 mb-5">
           <div class="footer-logo">
-            <img src="images/NDSELOGO.png" alt="NDSE Logo">
+            <img src="images/NDSELOGO2.png" alt="NDSE Logo">
           </div>
           <p class="footer-desc">Precision in Every Point. Leading industry experts in digital survey engineering since 2013.</p>
         </div>
@@ -435,7 +436,7 @@ template = """<!DOCTYPE html>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> Nathan Associates. All Rights Reserved.</p>
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> Nathan Digital Survey Engineers (NDSE). All Rights Reserved.</p>
     </div>
   </footer>
 
@@ -477,26 +478,24 @@ template = """<!DOCTYPE html>
     if (typeof AOS !== 'undefined') {{ AOS.init({{ duration: 700, once: true, offset: 60 }}); }}
   </script>
 </body>
-</html>"""
+</html>
+"@
 
-def get_image_key(service_name):
-    lower_name = service_name.lower()
-    if "drone" in lower_name or "aerial" in lower_name:
-        return "drone"
-    elif "gps" in lower_name or "dgps" in lower_name:
-        return "gps"
-    else:
-        return "total_station"
-
-for s in services:
-    slug = s.lower().replace(" ", "-")
-    file_path = os.path.join(base_dir, f"{slug}.html")
+foreach ($s in $services) {
+    $slug = $s.ToLower().Replace(" ", "-")
+    $filePath = Join-Path $baseDir "$slug.html"
     
-    img_key = get_image_key(s)
-    html_content = template.format(service_name=s, image_key=img_key)
+    $lowerName = $s.ToLower()
+    $imgKey = "total_station"
+    if ($lowerName -match "drone|aerial") {
+        $imgKey = "drone"
+    } elseif ($lowerName -match "gps|dgps") {
+        $imgKey = "gps"
+    }
     
-    with open(file_path, "w", encoding="utf-8") as f:
-        f.write(html_content)
-    print(f"Generated {file_path}")
+    $content = $template -f $s, $imgKey
+    Set-Content -Path $filePath -Value $content -Encoding UTF8
+    Write-Host "Generated $filePath"
+}
 
-print("Done generating 30 service files.")
+Write-Host "Done generating 30 service files."

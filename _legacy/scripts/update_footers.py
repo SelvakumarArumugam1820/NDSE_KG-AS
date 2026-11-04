@@ -4,7 +4,7 @@ import glob
 html_files = glob.glob('d:/backup/Backup/Projects/NDSE/public/*.html')
 
 target_str = """<div class="col-lg-3">
-<p class="mb-4"><img src="images/NDSELOGO.png" alt="Image" class="img-fluid" style="max-height: 80px;"></p>
+<p class="mb-4"><img src="images/NDSELOGO2.png" alt="Image" class="img-fluid" style="max-height: 80px;"></p>
 <p>Precision in Every Point. Leading industry experts in digital survey engineering.</p>
 </div>
 <div class="col-lg-3">
@@ -23,7 +23,7 @@ target_str = """<div class="col-lg-3">
 </div>"""
 
 replacement_str = """<div class="col-lg-3">
-<p class="mb-4"><img src="images/NDSELOGO.png" alt="Image" class="img-fluid" style="max-height: 80px;"></p>
+<p class="mb-4"><img src="images/NDSELOGO2.png" alt="Image" class="img-fluid" style="max-height: 80px;"></p>
 <p>Precision in Every Point. Leading industry experts in digital survey engineering.</p>
 </div>
 <div class="col-lg-2">

@@ -1,4 +1,4 @@
-document:addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger);
 
     // Fade-in Page Reveal
@@ -40,12 +40,12 @@ document:addEventListener('DOMContentLoaded', () => {
     const revealTargets = ".service-1, .project-item, .contact-item-premium, .img-animate-premium";
     ScrollTrigger.batch(revealTargets, {
         onEnter: batch => gsap.to(batch, {
-            opacity: 1, 
-            y: 0, 
-            stagger: 0.1, 
-            duration: 0.8, 
+            opacity: 1,
+            y: 0,
+            stagger: 0.1,
+            duration: 0.8,
             ease: 'back.out(1.7)',
-            overwrite: true 
+            overwrite: true
         }),
         start: 'top 85%',
     });

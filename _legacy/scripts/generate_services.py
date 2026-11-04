@@ -1,34 +1,55 @@
-$ErrorActionPreference = "Stop"
+import os
+import shutil
 
-$baseDir = "c:\Users\VaanamEMP\selvakumar_learing\NDSE_KG-AS\public"
+# Paths
+base_dir = r"c:\Users\VaanamEMP\selvakumar_learing\NDSE_KG-AS\public"
+images_dir = os.path.join(base_dir, "images", "illustrations")
 
-$services = @(
+# Create illustrations dir
+os.makedirs(images_dir, exist_ok=True)
+
+# Copy generated images to public/images/illustrations/
+# Using hardcoded filenames from artifact generation
+artifact_dir = r"C:\Users\VaanamEMP\.gemini\antigravity-ide\brain\dc996e2a-c982-4b60-b157-1ba734284615"
+generated_images = {
+    "total_station": "surveyor_total_station_1781418901934.png",
+    "drone": "surveyor_drone_1781418991360.png",
+    "gps": "surveyor_gps_1781419037944.png"
+}
+
+for key, filename in generated_images.items():
+    src = os.path.join(artifact_dir, filename)
+    dst = os.path.join(images_dir, f"{key}.png")
+    if os.path.exists(src):
+        shutil.copy2(src, dst)
+        print(f"Copied {filename} to {dst}")
+
+services = [
     "Land Survey", "Boundary Survey", "Topographical Survey", "DGPS Survey", "GPS Survey",
     "Total Station Survey", "Layout Survey", "Building Setting Out Survey", "Construction Survey", "Route Survey",
     "Road Alignment Survey", "Highway Survey", "Railway Survey", "Canal Survey", "Pipeline Survey",
     "Contour Survey", "Elevation Survey", "Mining Survey", "Industrial Survey", "Engineering Survey",
     "Control Survey", "Hydrographic Survey", "GIS Mapping", "Drone Survey", "As-Built Survey",
     "Property Survey", "Farm Land Survey", "Subdivision Survey", "Site Measurement Survey", "Land Demarcation Survey"
-)
+]
 
-$template = @"
-<!DOCTYPE html>
+template = """<!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>{0} Services in Tamil Nadu | NDSE</title>
+  <title>{service_name} Services in Tamil Nadu | NDSE</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Professional {0} services in Tamil Nadu. Ensure accurate measurements, legal compliance, and fast project execution by partnering with NDSE.">
-  <meta name="keywords" content="{0}, Land Survey, DGPS Survey, Total Station Survey, Boundary Survey, Topographical Survey, GIS Mapping, Drone Survey, Survey Company Tamil Nadu">
+  <meta name="description" content="Professional {service_name} services in Tamil Nadu. Accurate measurements, legal compliance, and fast project execution by NDSE.">
+  <meta name="keywords" content="{service_name}, Land Survey, DGPS Survey, Total Station Survey, Boundary Survey, Topographical Survey, Survey Company Tamil Nadu">
   
   <script type="application/ld+json">
   {{
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "{0}",
+    "serviceType": "{service_name}",
     "provider": {{
       "@type": "LocalBusiness",
-      "name": "Nathan Digital Survey Engineers",
+      "name": "Nathan Digital Survey Engineers (NDSE)",
       "image": "https://www.ndse.in/images/LG1.jpg",
       "telephone": "+917397733223",
       "address": {{
@@ -50,42 +71,42 @@ $template = @"
     "mainEntity": [
       {{
         "@type": "Question",
-        "name": "What is a {0}?",
+        "name": "What is a {service_name}?",
         "acceptedAnswer": {{
           "@type": "Answer",
-          "text": "A {0} provides precise, reliable measurements and data essential for planning, engineering, and legal purposes across various industries."
+          "text": "A {service_name} is a specialized surveying service that provides accurate data and measurements crucial for planning, engineering, and legal purposes."
         }}
       }},
       {{
         "@type": "Question",
-        "name": "How accurate is the survey?",
+        "name": "Why is {service_name} important in Tamil Nadu?",
         "acceptedAnswer": {{
           "@type": "Answer",
-          "text": "Our surveyors use state-of-the-art DGPS, Total Stations, and Drone technology to deliver millimeter-level accuracy on all projects."
+          "text": "It ensures legal compliance, avoids boundary disputes, and provides the exact measurements required for construction and government approvals in Tamil Nadu."
         }}
       }},
       {{
         "@type": "Question",
-        "name": "How long will the survey take?",
+        "name": "How long does a {service_name} take?",
         "acceptedAnswer": {{
           "@type": "Answer",
-          "text": "Most surveys are completed within 1 to 3 days depending on the project scale, followed by rapid data processing and report generation."
+          "text": "The timeline varies based on the site size and complexity, but our advanced technology allows us to complete most {service_name}s within 1 to 3 days."
         }}
       }},
       {{
         "@type": "Question",
-        "name": "Do you provide CAD drawings?",
+        "name": "What deliverables do I get?",
         "acceptedAnswer": {{
           "@type": "Answer",
-          "text": "Yes, we deliver detailed AutoCAD drawings, precise coordinates, and layout sketches as part of our standard deliverables."
+          "text": "You will receive detailed Survey Drawings, CAD files, Coordinates, layout sketches, and comprehensive analysis reports."
         }}
       }},
       {{
         "@type": "Question",
-        "name": "Is this survey legally valid?",
+        "name": "Do you offer {service_name} pan-India?",
         "acceptedAnswer": {{
           "@type": "Answer",
-          "text": "Absolutely. Our certified engineers ensure that all measurements comply with statutory regulations and can be used for legal and approval purposes."
+          "text": "Yes, while we are based in Tamil Nadu, our expert surveyors travel pan-India to provide high-precision {service_name}s for large-scale projects."
         }}
       }}
     ]
@@ -103,6 +124,7 @@ $template = @"
   <link rel="stylesheet" href="css/ndse-v2.css">
   
   <style>
+    /* Service Detail Styles */
     .service-detail-hero {{
       background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
       padding: 100px 0 60px;
@@ -110,16 +132,16 @@ $template = @"
       text-align: center;
     }}
     .service-detail-hero h1 {{
-      font-size: 3.5rem;
+      font-size: 3rem;
       font-weight: 700;
       margin-bottom: 20px;
       color: #fff;
     }}
     .service-detail-hero p {{
-      font-size: 1.2rem;
-      opacity: 0.95;
-      max-width: 700px;
-      margin: 0 auto 30px;
+      font-size: 1.1rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
     }}
     .service-content-section {{
       padding: 80px 0;
@@ -130,92 +152,39 @@ $template = @"
       width: 100%;
       height: auto;
     }}
-    .overview-box {{
+    .service-overview-box {{
       background: #f8f9fa;
       padding: 30px;
       border-radius: 12px;
       border-left: 4px solid var(--primary-color);
       margin-bottom: 30px;
     }}
-    .overview-box h4 {{
-      color: var(--primary-dark);
-      font-size: 1.1rem;
-      margin-top: 15px;
-      font-weight: 600;
-    }}
-    .overview-box h4:first-child {{
-      margin-top: 0;
-    }}
-    .benefits-list {{
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }}
-    .benefits-list li {{
-      background: #fff;
-      border: 1px solid #eee;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-    }}
-    .benefits-list li span {{
-      color: #28a745;
-      margin-right: 10px;
-      font-size: 1.2rem;
-    }}
-    .process-timeline {{
+    .process-steps {{
       list-style: none;
       padding: 0;
       margin-top: 30px;
     }}
-    .process-timeline li {{
-      background: #fff;
-      border-left: 3px solid var(--primary-color);
-      padding: 20px 20px 20px 30px;
-      margin-bottom: 15px;
-      border-radius: 0 8px 8px 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    .process-steps li {{
       position: relative;
+      padding-left: 40px;
+      margin-bottom: 20px;
     }}
-    .process-timeline li strong {{
-      color: var(--primary-dark);
-      font-size: 1.1rem;
-      display: block;
-      margin-bottom: 5px;
-    }}
-    .process-timeline li::before {{
-      content: '';
+    .process-steps li::before {{
+      content: "\\e5ca"; /* icon-check from icomoon if available, using simple dot */
+      font-family: 'icomoon';
       position: absolute;
-      left: -9px;
-      top: 25px;
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background: var(--primary-color);
-      border: 3px solid #fff;
-    }}
-    .deliverables-grid {{
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 15px;
-    }}
-    .deliverable-card {{
-      background: #f8f9fa;
-      padding: 20px;
-      border-radius: 8px;
-      text-align: center;
-      border: 1px solid #e9ecef;
-    }}
-    .deliverable-card span {{
-      font-size: 2rem;
+      left: 0;
+      top: 2px;
       color: var(--primary-color);
-      margin-bottom: 10px;
-      display: block;
+      font-size: 1.2rem;
+    }}
+    .benefits-list li {{
+      margin-bottom: 15px;
+      font-weight: 500;
+    }}
+    .benefits-list li span {{
+      color: #28a745;
+      margin-right: 10px;
     }}
   </style>
 </head>
@@ -274,12 +243,8 @@ $template = @"
   <div class="service-detail-hero">
     <div class="container">
       <div data-aos="fade-up">
-        <h1>{0}</h1>
-        <p>Premium, high-precision surveying solutions tailored for infrastructure, industrial, and real estate projects.</p>
-        <div class="mt-4">
-          <a href="contact.html" class="btn btn-light btn-lg px-4 mx-2" style="border-radius:30px; font-weight:600; color:var(--primary-dark);">Get Survey Quote</a>
-          <a href="tel:+917397733223" class="btn btn-outline-light btn-lg px-4 mx-2" style="border-radius:30px; font-weight:600;">Contact Our Survey Experts</a>
-        </div>
+        <h1>{service_name}</h1>
+        <p>Professional, accurate, and high-precision surveying solutions tailored for your project requirements.</p>
       </div>
     </div>
   </div>
@@ -291,66 +256,49 @@ $template = @"
         
         <!-- Left Col -->
         <div class="col-lg-8" data-aos="fade-up">
-          <img src="images/illustrations/{1}.png" alt="{0}" class="service-img mb-5" loading="lazy" style="max-height: 400px; object-fit: cover; object-position: center;">
+          <img src="images/illustrations/{image_key}.png" alt="{service_name}" class="service-img mb-4" loading="lazy">
           
-          <h2 class="mb-4">Overview</h2>
-          <div class="overview-box">
-            <h4>What is this survey?</h4>
-            <p>Our {0} provides precise, verified measurements of land, boundaries, and infrastructure layouts. Using advanced digital instruments, we capture essential spatial data required for comprehensive engineering and development planning.</p>
-            
-            <h4>Why is it required?</h4>
-            <p>This survey is critical to ensure that every phase of your project is built upon accurate dimensions. It directly mitigates legal boundary disputes, significantly reduces costly construction errors, and ensures seamless compliance with local statutory regulations.</p>
-            
-            <h4>Who needs it?</h4>
-            <p>Our services cater to: Land Owners, Commercial Builders, Real Estate Developers, Industrial Hubs, Government Infrastructure Projects, and Construction Companies.</p>
+          <h2 class="mb-3">Overview</h2>
+          <div class="service-overview-box">
+            <p><strong>What is this survey?</strong><br> {service_name} involves advanced techniques to measure, map, and gather precise data about land or structures, providing a fundamental basis for all subsequent engineering or architectural work.</p>
+            <p class="mt-3"><strong>Why is it required?</strong><br> To ensure that every project is built upon accurate dimensions, mitigating legal disputes and construction errors.</p>
+            <p class="mt-3"><strong>Who needs it?</strong><br> Real estate developers, architects, government agencies, and construction firms across commercial and industrial sectors.</p>
           </div>
 
-          <h3 class="mt-5 mb-4">Core Benefits</h3>
-          <ul class="benefits-list">
-            <li><span class="icon-check"></span> Accurate Measurements</li>
-            <li><span class="icon-check"></span> Legal Compliance</li>
+          <h3 class="mt-5 mb-3">Key Benefits</h3>
+          <ul class="list-unstyled benefits-list">
+            <li><span class="icon-check"></span> Accurate Measurements &amp; Data</li>
+            <li><span class="icon-check"></span> Legal Compliance &amp; Boundary Security</li>
             <li><span class="icon-check"></span> Faster Project Execution</li>
             <li><span class="icon-check"></span> Reduced Construction Errors</li>
             <li><span class="icon-check"></span> Government Approval Support</li>
-            <li><span class="icon-check"></span> Better Project Planning</li>
-            <li><span class="icon-check"></span> Improved Land Management</li>
           </ul>
 
-          <h3 class="mt-5 mb-4">Survey Process</h3>
-          <ol class="process-timeline">
-            <li><strong>1. Site Visit</strong> Initial inspection and evaluation of the project location to determine scope.</li>
-            <li><strong>2. Data Collection</strong> Deployment of high-tech instruments (Total Station, GPS, Drones) to capture field data.</li>
-            <li><strong>3. Survey Execution</strong> Systematic measurement and marking of the land or property boundaries.</li>
-            <li><strong>4. Data Analysis</strong> Processing the captured field data using advanced software like AutoCAD and GIS.</li>
-            <li><strong>5. Report Preparation</strong> Compiling accurate drawings, layout sketches, and detailed engineering reports.</li>
-            <li><strong>6. Client Delivery</strong> Handing over final digital and physical deliverables to the client.</li>
+          <h3 class="mt-5 mb-3">Our Survey Process</h3>
+          <ol class="process-steps">
+            <li><strong>Site Visit:</strong> Initial inspection and evaluation of the project location.</li>
+            <li><strong>Data Collection:</strong> Deployment of high-tech instruments (Total Station, GPS, Drones) to capture field data.</li>
+            <li><strong>Survey Execution:</strong> Systematic measurement and marking of the land or property.</li>
+            <li><strong>Analysis:</strong> Processing the captured data using advanced software like AutoCAD and GIS.</li>
+            <li><strong>Report Preparation:</strong> Compiling accurate drawings, layout sketches, and detailed reports.</li>
+            <li><strong>Client Delivery:</strong> Handing over final CAD files, physical reports, and providing engineering consultation.</li>
           </ol>
           
-          <h3 class="mt-5 mb-4">Final Deliverables</h3>
-          <div class="deliverables-grid">
-            <div class="deliverable-card">
-              <span class="flaticon-blueprint"></span>
-              <strong>Survey Drawings</strong>
+          <h3 class="mt-5 mb-3">Final Deliverables</h3>
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <ul class="list-unstyled benefits-list">
+                <li><span class="icon-file-text-o"></span> Detailed Survey Drawing</li>
+                <li><span class="icon-file-text-o"></span> AutoCAD / CAD Files</li>
+                <li><span class="icon-file-text-o"></span> Precise Coordinates Data</li>
+              </ul>
             </div>
-            <div class="deliverable-card">
-              <span class="icon-desktop"></span>
-              <strong>CAD Files</strong>
-            </div>
-            <div class="deliverable-card">
-              <span class="icon-location-arrow"></span>
-              <strong>Coordinates</strong>
-            </div>
-            <div class="deliverable-card">
-              <span class="icon-pencil"></span>
-              <strong>Layout Sketches</strong>
-            </div>
-            <div class="deliverable-card">
-              <span class="icon-file-text-o"></span>
-              <strong>Technical Reports</strong>
-            </div>
-            <div class="deliverable-card">
-              <span class="icon-globe"></span>
-              <strong>GIS Data & Maps</strong>
+            <div class="col-md-6">
+              <ul class="list-unstyled benefits-list">
+                <li><span class="icon-file-text-o"></span> Comprehensive Reports</li>
+                <li><span class="icon-file-text-o"></span> Layout Sketches</li>
+                <li><span class="icon-file-text-o"></span> GIS Maps (if applicable)</li>
+              </ul>
             </div>
           </div>
           
@@ -360,7 +308,7 @@ $template = @"
         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <div class="bg-light p-4 rounded mb-4" style="border: 1px solid #e9ecef;">
             <h4 class="mb-4">Get a Quote</h4>
-            <p class="text-muted mb-4">Need reliable {0} services? Contact our engineering experts today for accurate estimations and rapid deployment.</p>
+            <p class="text-muted mb-4">Need reliable {service_name} services? Contact our engineering experts today for accurate estimations and quick deployments.</p>
             <a href="contact.html" class="btn-primary-ndse d-block text-center w-100 mb-3">Get Survey Quote</a>
             <a href="tel:+917397733223" class="btn-secondary-ndse d-block text-center w-100">Contact Our Survey Experts</a>
           </div>
@@ -382,7 +330,7 @@ $template = @"
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center mb-5" data-aos="fade-up">
           <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
-          <p class="section-desc">Common queries about our {0} services.</p>
+          <p class="section-desc">Common queries about our {service_name} services.</p>
         </div>
       </div>
       <div class="row justify-content-center">
@@ -391,60 +339,60 @@ $template = @"
             <div class="accordion-item" style="border:none; border-bottom:1px solid #ddd; border-radius:0;">
               <h2 class="accordion-header" id="headingOne">
                 <button class="accordion-button collapsed bg-transparent font-weight-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" style="color:var(--primary-dark); box-shadow:none;">
-                  What is a {0}?
+                  What is a {service_name}?
                 </button>
               </h2>
               <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body text-muted">
-                  A {0} provides precise, reliable measurements and data essential for planning, engineering, and legal purposes across various industries.
+                  A {service_name} is a specialized surveying service that provides accurate data and measurements crucial for planning, engineering, and legal purposes.
                 </div>
               </div>
             </div>
             <div class="accordion-item" style="border:none; border-bottom:1px solid #ddd; border-radius:0;">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed bg-transparent font-weight-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" style="color:var(--primary-dark); box-shadow:none;">
-                  How accurate is the survey?
+                  Why is {service_name} important in Tamil Nadu?
                 </button>
               </h2>
               <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body text-muted">
-                  Our surveyors use state-of-the-art DGPS, Total Stations, and Drone technology to deliver millimeter-level accuracy on all projects.
+                  It ensures legal compliance, avoids boundary disputes, and provides the exact measurements required for construction and government approvals in Tamil Nadu.
                 </div>
               </div>
             </div>
             <div class="accordion-item" style="border:none; border-bottom:1px solid #ddd; border-radius:0;">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed bg-transparent font-weight-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" style="color:var(--primary-dark); box-shadow:none;">
-                  How long will the survey take?
+                  How long does a {service_name} take?
                 </button>
               </h2>
               <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body text-muted">
-                  Most surveys are completed within 1 to 3 days depending on the project scale, followed by rapid data processing and report generation.
+                  The timeline varies based on the site size and complexity, but our advanced technology allows us to complete most {service_name}s within 1 to 3 days.
                 </div>
               </div>
             </div>
             <div class="accordion-item" style="border:none; border-bottom:1px solid #ddd; border-radius:0;">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed bg-transparent font-weight-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" style="color:var(--primary-dark); box-shadow:none;">
-                  Do you provide CAD drawings?
+                  What deliverables do I get?
                 </button>
               </h2>
               <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body text-muted">
-                  Yes, we deliver detailed AutoCAD drawings, precise coordinates, and layout sketches as part of our standard deliverables.
+                  You will receive detailed Survey Drawings, CAD files, Coordinates, layout sketches, and comprehensive analysis reports.
                 </div>
               </div>
             </div>
             <div class="accordion-item" style="border:none; border-bottom:1px solid #ddd; border-radius:0;">
               <h2 class="accordion-header">
                 <button class="accordion-button collapsed bg-transparent font-weight-bold" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" style="color:var(--primary-dark); box-shadow:none;">
-                  Is this survey legally valid?
+                  Do you offer {service_name} pan-India?
                 </button>
               </h2>
               <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div class="accordion-body text-muted">
-                  Absolutely. Our certified engineers ensure that all measurements comply with statutory regulations and can be used for legal and approval purposes.
+                  Yes, while we are based in Tamil Nadu, our expert surveyors travel pan-India to provide high-precision {service_name}s for large-scale projects.
                 </div>
               </div>
             </div>
@@ -460,7 +408,7 @@ $template = @"
       <div class="row">
         <div class="col-lg-3 col-md-6 mb-5">
           <div class="footer-logo">
-            <img src="images/NDSELOGO.png" alt="NDSE Logo">
+            <img src="images/NDSELOGO2.png" alt="NDSE Logo">
           </div>
           <p class="footer-desc">Precision in Every Point. Leading industry experts in digital survey engineering since 2013.</p>
         </div>
@@ -487,7 +435,7 @@ $template = @"
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; <script>document.write(new Date().getFullYear())</script> Nathan Associates. All Rights Reserved.</p>
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> Nathan Digital Survey Engineers (NDSE). All Rights Reserved.</p>
     </div>
   </footer>
 
@@ -529,27 +477,26 @@ $template = @"
     if (typeof AOS !== 'undefined') {{ AOS.init({{ duration: 700, once: true, offset: 60 }}); }}
   </script>
 </body>
-</html>
-"@
+</html>"""
 
-foreach ($s in $services) {
-    $slug = $s.ToLower().Replace(" ", "-")
-    $filePath = Join-Path $baseDir "$slug.html"
-    
-    $lowerName = $s.ToLower()
-    $imgKey = "total_station"
-    # Fallback to previously generated or existing images
-    if ($lowerName -match "drone|aerial") {
-        $imgKey = "drone"
-    } elseif ($lowerName -match "gps|dgps") {
-        $imgKey = "gps"
-    } elseif ($lowerName -match "gis|mapping|topo") {
-        $imgKey = "drone"
-    }
-    
-    $content = $template -f $s, $imgKey
-    Set-Content -Path $filePath -Value $content -Encoding UTF8
-    Write-Host "Generated $filePath"
-}
+def get_image_key(service_name):
+    lower_name = service_name.lower()
+    if "drone" in lower_name or "aerial" in lower_name:
+        return "drone"
+    elif "gps" in lower_name or "dgps" in lower_name:
+        return "gps"
+    else:
+        return "total_station"
 
-Write-Host "Done generating 30 service files."
+for s in services:
+    slug = s.lower().replace(" ", "-")
+    file_path = os.path.join(base_dir, f"{slug}.html")
+    
+    img_key = get_image_key(s)
+    html_content = template.format(service_name=s, image_key=img_key)
+    
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    print(f"Generated {file_path}")
+
+print("Done generating 30 service files.")
